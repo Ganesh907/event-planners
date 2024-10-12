@@ -76,8 +76,8 @@ const handleSelectProduct = (product) => {
             {categories.map((category) => (
               <div key={category.name} className="flex flex-col items-center w-40 md:w-52">
                 <button
-                  className={`relative flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl
-                    ${selectedCategory === category.name ? 'ring-2 ring-[#9c27b0] scale-105' : 'ring-2 bg-indigo-500'}`}
+                  className={`relative flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-3xl
+                    ${selectedCategory === category.name ? 'ring-2 ring-[#9c27b0] scale-110' : 'ring-2 ring-black bg-indigo-500'}`}
                   onClick={() => setSelectedCategory(category.name)}
                 >
                   <img src={category.image} alt={category.name} className="absolute inset-0 object-cover w-full h-full opacity-80 transition duration-300 ease-in-out" />
@@ -127,7 +127,7 @@ const handleSelectProduct = (product) => {
               <div key={item.title} className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onClick={() => openProductDetails(item)}>
                 <img src={item.image} alt={item.title} className="w-full h-40 object-cover rounded-t-lg" />
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-indigo-500 mb-1">{item.title}</h3>
+                  <h3 className="text-lg font-semibold text-[#9c27b0] mb-1">{item.title}</h3>
                   <p className="text-gray-700 mb-2">{`₹${item.price}`}</p>
                 </div>
               </div>

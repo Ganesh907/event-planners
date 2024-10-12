@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" h-[17vh] shadow-md">
+    <header className=" h-[18vh] shadow-md">
       {/* Top Logo and Search Bar Section */}
       <div className="bg-[#9c27b0] text-white py-2 drop-shadow-lg px-4 md:px-10 flex justify-between items-center">
         {/* Logo */}
@@ -95,7 +95,7 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Links Section */}
-      <nav className="shadow-sm md:flex justify-start border-y-2 border-[#9c27b0]">
+      <nav className="shadow-sm md:flex justify-start">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Menu Links */}

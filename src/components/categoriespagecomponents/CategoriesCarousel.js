@@ -78,7 +78,7 @@ const CategoriesCarousel = () => {
 
   return (
     <div
-      className="flex justify-center items-center mx-auto my-10 flex-col w-full md:w-[90vw] select-none"
+      className="flex justify-center items-center mx-2 md:mx-auto my-10 flex-col w-auto md:w-[90vw] select-none"
       style={{ fontFamily: "Playfair Display" }}
     >
       <div

@@ -63,16 +63,16 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
           <h2 className="text-3xl font-bold text-gray-900 mb-2">{product.title}</h2>
 
           {/* Rating */}
-          <div className="flex items-center mb-4">
-            <Rating name="product-rating" value={product.rating} precision={0.5} readOnly />
-            <span className="ml-2 text-gray-600">({product.reviews} reviews)</span>
-          </div>
+          {/* <div className="flex items-center mb-4"> */}
+            {/* <Rating name="product-rating" value={product.rating} precision={0.5} readOnly /> */}
+            {/* <span className="ml-2 text-gray-600">({product.reviews} reviews)</span> */}
+          {/* </div> */}
 
           {/* Price */}
-          <div className="text-2xl font-semibold text-indigo-600 mb-4">{`₹${product.price}`}</div>
+          <div className="text-2xl font-semibold text-[#9c27b0] mb-4">{`₹${product.price}`}</div>
 
           {/* Product Description */}
-          <p className="text-gray-700 leading-relaxed mb-6">{product.description}</p>
+          <p className="text-gray-700 leading-relaxed mb-4"><span className='font-semibold'>Description : </span>{product.description}</p>
 
           {/* Items Used in the Product */}
           <div className="mb-6">
@@ -117,7 +117,7 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
               >
                 <img src={item.image} alt={item.title} className="w-full h-40 object-cover rounded-t-lg" />
                 <div className="p-4">
-                  <h4 className="text-lg font-semibold text-indigo-500 mb-1">{item.title}</h4>
+                  <h4 className="text-lg font-semibold text-[#9c27b0] mb-1">{item.title}</h4>
                   <p className="text-gray-700 mb-2">{`₹${item.price}`}</p>
                 </div>
               </div>

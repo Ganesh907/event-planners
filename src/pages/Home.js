@@ -38,7 +38,7 @@ const EventPage = () => {
 
   return (
     <div>
-          <div className="relative h-[83vh] flex justify-center items-center">
+          <div className="relative h-[82vh] flex justify-center items-center">
       {/* Video background for the main div */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -62,7 +62,7 @@ const EventPage = () => {
             className="h-20 w-20 border-black border-2 my-10 rounded-full"
           />
           <h1
-            className="text-7xl text-center font-bold mx-10 border-y-4 py-2 italic border-black"
+            className="text-5xl text-center font-bold mx-10 border-y-4 py-2 italic border-black"
             style={{ fontFamily: 'Playfair Display' }}
           >
             Classic Event
@@ -77,7 +77,7 @@ const EventPage = () => {
             {categories.map((category) => (
               <div key={category.name} className="flex flex-col items-center w-40 md:w-52">
                 <button
-                className='relative flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl'
+                className='relative border-2 border-black flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl'
                   // className={`relative flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl
                   //   ${selectedCategory === category.name ? 'ring-2 ring-[#9c27b0] scale-105' : 'ring-2 bg-indigo-500'}`}
                   onClick={() => navigate('/category')}
