@@ -1,6 +1,6 @@
 import BgVideo from '../assets/videos/BackgroundVideo.mp4';
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/images/Logo.jpg'
+import logo from '../assets/images/EPLogo.jpeg'
 import CategoriesCarousel from '../components/categoriespagecomponents/CategoriesCarousel';
 import { categories } from '../utils/CategoriesData';
 import { useNavigate } from 'react-router';
@@ -38,7 +38,7 @@ const EventPage = () => {
 
   return (
     <div>
-          <div className="relative h-[82vh] flex justify-center items-center">
+          <div className="relative h-[80vh] flex justify-center items-center">
       {/* Video background for the main div */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -59,13 +59,13 @@ const EventPage = () => {
           <img
             src={logo} 
             alt="Logo"
-            className="h-20 w-20 border-black border-2 my-10 rounded-full"
+            className="h-32 w-32 shadow-lg shadow-black border-black border-2 my-10 rounded-full"
           />
           <h1
             className="text-5xl text-center font-bold mx-10 border-y-4 py-2 italic border-black"
             style={{ fontFamily: 'Playfair Display' }}
           >
-            Classic Event
+            Event Planners
           </h1>
           {/* <CelebrationIcon sx={{ fontSize: '100px', transform: 'rotate(270deg)' }} /> */}
         </div>

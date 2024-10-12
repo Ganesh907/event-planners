@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
-import logo from '../assets/images/Logo.jpg'
+import logo from '../assets/images/EPLogo.jpeg'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" h-[18vh] shadow-md">
+    <header className=" h-[20vh] shadow-md z-40">
       {/* Top Logo and Search Bar Section */}
       <div className="bg-[#9c27b0] text-white py-2 drop-shadow-lg px-4 md:px-10 flex justify-between items-center">
         {/* Logo */}
@@ -19,12 +19,13 @@ const Navbar = () => {
           <img
             src={logo} // Replace with your logo
             alt="Logo"
-            className="h-12 w-12 rounded-full shadow-md shadow-black"
+            className="h-12 w-12 rounded-full shadow-md p-1 bg-white shadow-black"
           />
           <div className='h-12 w-[2px] bg-white rounded-md'></div>
           <div className="leading-tight">
-            <h1 className="text-3xl font-semibold  italic " style={{ fontFamily: 'Playfair Display' }} >Classic Event</h1>
-            <p className="text-xs italic">Classic Touches for Modern Celebrations...</p>
+            <h1 className="text-3xl font-semibold  italic " style={{ fontFamily: 'Playfair Display' }} >Event Planners</h1>
+            {/* <p className="text-xs italic">Classic Touches for Modern Celebrations...</p> */}
+            <p className="text-xs italic">Planning the Event of Your Dreams....</p>
           </div>
         </div>
 
@@ -95,7 +96,7 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Links Section */}
-      <nav className="shadow-sm md:flex justify-start">
+      <nav className="shadow-sm md:flex justify-start z-40 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Menu Links */}
@@ -146,7 +147,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <ul className="md:hidden space-y-4 py-4">
+            <ul className="md:hidden space-y-4 py-4 z-40 ">
               {["Home", "Category", "About Us", "Contact Us", "Privacy Policy", "Terms & Conditions"].map(
                 (link) => (
                   <li key={link}>
