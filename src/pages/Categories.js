@@ -28,8 +28,8 @@ const CategoriesPage = () => {
       images: [BirthdayDecoration, GaneshaDecoration, WeddingDecoration, BabyShowerDecoration], // Add your dynamic images here
     };
 
-    const relatedProducts = filterItems(categories.find((category) => category.name === selectedCategory)?.items)
-      .filter((item) => item.title !== product.title); // Get related products based on the category
+    // const relatedProducts = filterItems(categories.find((category) => category.name === selectedCategory)?.items)
+    //   .filter((item) => item.title !== product.title); 
 
     setSelectedProduct(productWithImages);
     setIsProductDetailsOpen(true);
@@ -41,9 +41,8 @@ const handleSelectProduct = (product) => {
     images: [BirthdayDecoration, GaneshaDecoration, WeddingDecoration, BabyShowerDecoration], // Add your dynamic images here
   };
 
-  const relatedProducts = filterItems(categories.find((category) => category.name === selectedCategory)?.items)
-    .filter((item) => item.title !== product.title); // Get related products based on the category
-
+  // const relatedProducts = filterItems(categories.find((category) => category.name === selectedCategory)?.items)
+  //   .filter((item) => item.title !== product.title); 
   setSelectedProduct(productWithImages);
 };
   // Close product details

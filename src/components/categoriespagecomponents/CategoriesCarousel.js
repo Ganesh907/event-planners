@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import BabyShowerDecoration from "../../assets/images/BabyShowerDecoration.jpg";
 import BirthdayDecoration from "../../assets/images/BirthdayDecoration.jpg";
 import GaneshaDecoration from "../../assets/images/GaneshaDecoration.jpg";
@@ -35,9 +35,10 @@ const CategoriesCarousel = () => {
   const startPosition = useRef(0);
   const intervalRef = useRef(null);
 
-  const nextSlide = () => {
+  // Using useCallback to memoize the nextSlide function
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
+  }, [slides.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -46,9 +47,10 @@ const CategoriesCarousel = () => {
   };
 
   useEffect(() => {
+    // Adding nextSlide to the dependency array to avoid warnings
     intervalRef.current = setInterval(nextSlide, 3000);
     return () => clearInterval(intervalRef.current);
-  }, []);
+  }, [nextSlide]); // nextSlide is now memoized and safe to add to the dependency array
 
   const handleDragStart = (e) => {
     setIsDragging(true);
