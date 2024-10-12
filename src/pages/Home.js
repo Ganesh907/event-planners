@@ -59,7 +59,7 @@ const EventPage = () => {
           <img
             src={logo} 
             alt="Logo"
-            className="h-32 w-32 shadow-lg shadow-black border-black border-2 my-10 rounded-full"
+            className="h-32 w-32 shadow-lg shadow-black border-black p-1 border-2 my-10 rounded-full"
           />
           <h1
             className="text-5xl text-center font-bold mx-10 border-y-4 py-2 italic border-black"
