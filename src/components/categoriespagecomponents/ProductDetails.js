@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Rating } from '@mui/material';
+// import { Rating } from '@mui/material';
 
 const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) => {
   const [selectedImage, setSelectedImage] = useState(product?.images[0]); // State to track selected image
