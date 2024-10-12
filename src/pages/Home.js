@@ -1,4 +1,3 @@
-import CelebrationIcon from '@mui/icons-material/Celebration';
 import BgVideo from '../assets/videos/BackgroundVideo.mp4';
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/images/Logo.jpg'
