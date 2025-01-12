@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// MUI Icons
+import { Person, Email, Phone, Subject, Message } from '@mui/icons-material';
+
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,}$/;
 const phoneRegex = /^[0-9]{10}$/;
 
@@ -15,8 +18,8 @@ export const ContactUsForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    toast.success("Form submitted successfully!", {
-      position: "top-center",
+    toast.success('Form submitted successfully!', {
+      position: 'top-center',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -24,31 +27,29 @@ export const ContactUsForm = () => {
       draggable: true,
     });
 
-    console.log("Form data submitted: ", data);
+    console.log('Form data submitted: ', data);
     reset();
   };
 
   return (
-    <div className="scale-90 bg-white rounded-xl shadow-2xl max-w-2xl mx-auto p-5  md:p-8 lg:p-5 lg:px-12">
+    <div className="scale-90 bg-white rounded-xl shadow-2xl max-w-2xl mx-auto p-5 md:p-8 lg:p-5 lg:px-12">
       {/* Header */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-[#9c27b0] italic bg-white rounded-md"
-        style={{ fontFamily: 'Playfair Display' }} >
+        <h2
+          className="text-3xl lg:text-4xl font-extrabold text-[#9c27b0] italic bg-white rounded-md"
+          style={{ fontFamily: 'Playfair Display' }}
+        >
           Plan Your Perfect Event
         </h2>
-        <p className="text-md text-black mt-2">
-          Let us help you create unforgettable moments.
-        </p>
+        <p className="text-md text-black mt-2">Let us help you create unforgettable moments.</p>
       </div>
 
       {/* Form */}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-lg font-medium text-black mb-2">
+          <label htmlFor="name" className=" text-lg font-medium text-black mb-2 flex items-center">
+            <Person className="mr-2 text-[#9c27b0]" />
             Name
           </label>
           <input
@@ -63,7 +64,8 @@ export const ContactUsForm = () => {
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-lg font-medium text-black mb-2">
+          <label htmlFor="email" className="block text-lg font-medium text-black mb-2 flex items-center">
+            <Email className="mr-2 text-[#9c27b0]" />
             Email
           </label>
           <input
@@ -84,7 +86,8 @@ export const ContactUsForm = () => {
 
         {/* Phone */}
         <div>
-          <label htmlFor="phone" className="block text-lg font-medium text-black mb-2">
+          <label htmlFor="phone" className="block text-lg font-medium text-black mb-2 flex items-center">
+            <Phone className="mr-2 text-[#9c27b0]" />
             Phone
           </label>
           <input
@@ -96,7 +99,6 @@ export const ContactUsForm = () => {
               pattern: {
                 value: phoneRegex,
                 message: 'Phone number must be 10 digits',
-                
               },
             })}
             className="w-full p-2 text-gray-800 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#9c27b0] focus:outline-none"
@@ -107,7 +109,8 @@ export const ContactUsForm = () => {
 
         {/* Subject */}
         <div>
-          <label htmlFor="subject" className="block text-lg font-medium text-black mb-2">
+          <label htmlFor="subject" className="block text-lg font-medium text-black mb-2 flex items-center">
+            <Subject className="mr-2 text-[#9c27b0]" />
             Subject
           </label>
           <input
@@ -122,7 +125,8 @@ export const ContactUsForm = () => {
 
         {/* Message */}
         <div className="lg:col-span-2">
-          <label htmlFor="message" className="block text-lg font-medium text-black mb-2">
+          <label htmlFor="message" className="block text-lg font-medium text-black mb-2 flex items-center">
+            <Message className="mr-2 text-[#9c27b0]" />
             Message
           </label>
           <textarea
