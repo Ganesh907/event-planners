@@ -38,7 +38,7 @@ const EventPage = () => {
 
   return (
     <div>
-          <div className="relative h-[80vh] flex justify-center items-center">
+          <div className="relative h-[80vh] flex justify-center items-center ">
       {/* Video background for the main div */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"

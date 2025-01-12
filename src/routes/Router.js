@@ -34,6 +34,7 @@ const About = lazy(() => import("../pages/AboutUs"));
 const Contact = lazy(() => import("../pages/ContactUsPage"));
 const PrivacyPolicy = lazy(() => import("../pages/PrivacyPolicy"));
 const TermsConditions = lazy(() => import("../pages/TermsConditions"));
+const LoginPage = lazy(() => import("../pages/Login"));
 const Cart = lazy(() => import("../components/categoriespagecomponents/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
@@ -49,6 +50,7 @@ const AppRoutes = [
       { path: "/privacy-policy", element: <PrivacyPolicy /> },
       { path: "/terms-conditions", element: <TermsConditions /> },
       { path: "/cart", element: <Cart /> },
+      { path: "/login", element: <LoginPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },

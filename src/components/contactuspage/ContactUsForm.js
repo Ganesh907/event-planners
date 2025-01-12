@@ -1,263 +1,153 @@
-import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// Regular Expression for Valid Email and Phone
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const phoneRegex = /^[0-9]{10}$/; // This is for a 10-digit phone number
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /^[0-9]{10}$/;
 
 export const ContactUsForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const onSubmit = (data) => {
+    toast.success("Form submitted successfully!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-
-    // Clear error when input changes
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
-  };
-
-  // Handle phone number input to allow only digits
-  const handlePhoneChange = (e) => {
-    const { name, value } = e.target;
-
-    // Allow only numbers by replacing non-numeric characters
-    const numericValue = value.replace(/[^0-9]/g, "");
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: numericValue,
-    }));
-
-    // Clear the phone error message on user input
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
-  };
-
-  const validateForm = () => {
-    let isValid = true;
-    let newErrors = {
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    };
-
-    // Validate Name
-    if (!formData.name) {
-      newErrors.name = "Name is required";
-      isValid = false;
-    }
-
-    // Validate Email
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-      isValid = false;
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-      isValid = false;
-    }
-
-    // Validate Phone
-    if (!formData.phone) {
-      newErrors.phone = "Phone number is required";
-      isValid = false;
-    } else if (!phoneRegex.test(formData.phone)) {
-      newErrors.phone = "Phone number must be 10 digits";
-      isValid = false;
-    }
-
-    // Validate Subject
-    if (!formData.subject) {
-      newErrors.subject = "Subject is required";
-      isValid = false;
-    }
-
-    // Validate Message
-    if (!formData.message) {
-      newErrors.message = "Message is required";
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (validateForm()) {
-      toast.success("Form submitted successfully!", {
-        position: "top-center", // Position of the toast
-        autoClose: 5000, // Duration before auto-dismiss (in milliseconds)
-        hideProgressBar: false, // Show progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause the toast when hovered
-        draggable: true, // Allow dragging the toast
-        progress: undefined, // Default progress bar
-      });
-      console.log("Form data submitted: ", formData);
-      // You can add logic to submit the form, e.g., to an API here
-    }
+    console.log("Form data submitted: ", data);
+    reset();
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg max-w-md mx-auto my-10 p-6">
+    <div className="scale-90 bg-white rounded-xl shadow-2xl max-w-2xl mx-auto p-5  md:p-8 lg:p-5 lg:px-12">
       {/* Header */}
-      <div className="bg-gradient-to-r from-teal-500 to-teal-600 text-white p-4 rounded-t-lg">
-        <h2 className="text-2xl font-semibold">Send Us an Enquiry</h2>
+      <div className="text-center mb-8">
+        <h2 className="text-3xl lg:text-4xl font-extrabold text-[#9c27b0] italic bg-white rounded-md"
+        style={{ fontFamily: 'Playfair Display' }} >
+          Plan Your Perfect Event
+        </h2>
+        <p className="text-md text-black mt-2">
+          Let us help you create unforgettable moments.
+        </p>
       </div>
+
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-4 mt-6">
-        {/* Name Field */}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+      >
+        {/* Name */}
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label htmlFor="name" className="block text-lg font-medium text-black mb-2">
             Name
           </label>
           <input
             type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            maxLength={25}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
-            placeholder="Your Name"
+            id="name"
+            {...register('name', { required: 'Name is required' })}
+            className="w-full p-2 text-gray-800 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#9c27b0] focus:outline-none"
+            placeholder="Your Full Name"
           />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-          )}
+          {errors.name && <p className="text-sm text-red-500 mt-2">{errors.name.message}</p>}
         </div>
 
-        {/* Email Field */}
+        {/* Email */}
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label htmlFor="email" className="block text-lg font-medium text-black mb-2">
             Email
           </label>
           <input
             type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            maxLength={25}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
-            placeholder="Your Email"
+            id="email"
+            {...register('email', {
+              required: 'Email is required',
+              pattern: {
+                value: emailRegex,
+                message: 'Invalid email format',
+              },
+            })}
+            className="w-full p-2 text-gray-800 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#9c27b0] focus:outline-none"
+            placeholder="Your Email Address"
           />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-          )}
+          {errors.email && <p className="text-sm text-red-500 mt-2">{errors.email.message}</p>}
         </div>
 
-        {/* Phone Field */}
+        {/* Phone */}
         <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label htmlFor="phone" className="block text-lg font-medium text-black mb-2">
             Phone
           </label>
           <input
             type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handlePhoneChange} // Use custom handler
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+            id="phone"
+            maxLength={10}
+            {...register('phone', {
+              required: 'Phone number is required',
+              pattern: {
+                value: phoneRegex,
+                message: 'Phone number must be 10 digits',
+                
+              },
+            })}
+            className="w-full p-2 text-gray-800 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#9c27b0] focus:outline-none"
             placeholder="Your Phone Number"
-            maxLength={10} // Restrict to 10 digits
           />
-          {errors.phone && (
-            <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-          )}
+          {errors.phone && <p className="text-sm text-red-500 mt-2">{errors.phone.message}</p>}
         </div>
 
-        {/* Subject Field */}
+        {/* Subject */}
         <div>
-          <label
-            htmlFor="subject"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label htmlFor="subject" className="block text-lg font-medium text-black mb-2">
             Subject
           </label>
           <input
             type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            maxLength={25}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
-            placeholder="Subject"
+            id="subject"
+            {...register('subject', { required: 'Subject is required' })}
+            className="w-full p-2 text-gray-800 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#9c27b0] focus:outline-none"
+            placeholder="Event Subject"
           />
-          {errors.subject && (
-            <p className="text-red-500 text-sm mt-1">{errors.subject}</p>
-          )}
+          {errors.subject && <p className="text-sm text-red-500 mt-2">{errors.subject.message}</p>}
         </div>
 
-        {/* Message Field */}
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+        {/* Message */}
+        <div className="lg:col-span-2">
+          <label htmlFor="message" className="block text-lg font-medium text-black mb-2">
             Message
           </label>
           <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            maxLength={100}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
-            rows="4"
-            placeholder="Your Message"
+            id="message"
+            {...register('message', { required: 'Message is required' })}
+            className="w-full p-4 text-gray-800 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#9c27b0] focus:outline-none"
+            rows="5"
+            placeholder="Describe your event..."
           ></textarea>
-          {errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-          )}
+          {errors.message && <p className="text-sm text-red-500 mt-2">{errors.message.message}</p>}
         </div>
 
         {/* Submit Button */}
-        <div className="mt-4">
+        <div className="lg:col-span-2">
           <button
             type="submit"
-            className="w-full bg-teal-600 text-white py-3 rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200"
+            className="w-full p-2 bg-[#9c27b0] text-white font-semibold hover:scale-105 rounded-lg shadow-lg transition ease-in-out duration-300 focus:ring-2 focus:ring-[#9c27b0]"
           >
-            Submit
+            Submit Your Enquiry
           </button>
         </div>
       </form>
+
       {/* ToastContainer */}
-      <ToastContainer /> {/* Add ToastContainer here */}
+      <ToastContainer />
     </div>
   );
 };

@@ -1,30 +1,37 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom
-import logo from '../../assets/images/EPLogo.jpeg'
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation hook
+import logo from '../../assets/images/EPLogo.jpeg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MenuListComposition from './User';
+
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("Home");
+  const location = useLocation(); // Get the current location
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Helper function to check if the current path matches the link path
+  const isActiveLink = (linkPath) => {
+    const currentPath = location.pathname;
+    return currentPath === linkPath;
+  };
+
   return (
-    <header className=" h-[20vh] shadow-md z-40">
+    <header className="sticky top-0 bg-white shadow-md z-50"> {/* Sticky top applied here */}
       {/* Top Logo and Search Bar Section */}
-      <div className="bg-[#9c27b0] text-white py-2 drop-shadow-lg px-4 md:px-10 flex justify-between items-center">
+      <div className="bg-gradient-to-r from-purple-500 to-pink-500  text-white py-2 drop-shadow-lg px-4 md:px-10 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2 ">
           <img
-            src={logo} // Replace with your logo
+            src={logo}
             alt="Logo"
             className="h-12 w-12 rounded-full shadow-md p-1 bg-white shadow-black"
           />
           <div className='h-12 w-[2px] bg-white rounded-md'></div>
           <div className="leading-tight">
-            <h1 className="text-3xl font-semibold  italic " style={{ fontFamily: 'Playfair Display' }} >Event Planners</h1>
-            {/* <p className="text-xs italic">Classic Touches for Modern Celebrations...</p> */}
+            <h1 className="text-3xl font-semibold italic" style={{ fontFamily: 'Playfair Display' }}>Event Planners</h1>
             <p className="text-xs italic">Planning the Event of Your Dreams....</p>
           </div>
         </div>
@@ -72,41 +79,41 @@ const Navbar = () => {
                 d="M3 3h2l.4 2M7 13h10l3.6-7H5.4M7 13L5 6H3M7 13l1.2 6m10.6 0l1.2-6M9 19a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span className="absolute top-0 right-0 bg-red-500 text-xs text-white rounded-full h-4 w-4 flex items-center justify-center">
+            <span className="absolute top-0 right-0 bg-[#9c27b0] text-xs text-white rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
           </div>
           {/* Profile */}
-          <AccountCircleIcon/>
+          <MenuListComposition/>
         </div>
       </div>
 
       {/* Navigation Links Section */}
-      <nav className="shadow-sm md:flex justify-start z-40 ">
+      <nav className="shadow-sm md:flex justify-start z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Menu Links */}
             <ul className="hidden md:flex space-x-8">
-              {["Home", "Category", "About Us", "Contact Us", "Privacy Policy", "Terms & Conditions"].map(
-                (link) => (
+              {["Home", "Category", "About Us", "Contact Us", "Privacy Policy", "Terms & Conditions"].map((link) => {
+                const linkPath = link === "Home" ? "/" : `/${link.toLowerCase().replace(/\s+/g, "-")}`;
+                return (
                   <li key={link}>
                     <Link
-                      to={link === "Home" ? "/" : `/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      onClick={() => setActiveLink(link)}
+                      to={linkPath}
                       className={`${
-                        activeLink === link ? "text-red-500" : "text-black"
-                      } hover:text-red-500 transition-all font-medium`}
+                        isActiveLink(linkPath) ? "text-[#9c27b0] font-medium" : "text-black"
+                      } hover:text-[#9c27b0] transition-all font-medium`}
                     >
                       {link}
                     </Link>
-                    {activeLink === link && (
-                      <div className="h-1 w-full bg-red-500 rounded-full mt-1">
-                        <div className="w-2 h-2 bg-red-500 rounded-full mx-auto mt-1"></div>
+                    {isActiveLink(linkPath) && (
+                      <div className="h-1 w-full bg-[#9c27b0] rounded-full mt-1">
+                        <div className="w-2 h-2 bg-[#9c27b0] rounded-full mx-auto mt-1"></div>
                       </div>
                     )}
                   </li>
-                )
-              )}
+                );
+              })}
             </ul>
 
             {/* Mobile Menu Button */}
@@ -133,28 +140,30 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <ul className="md:hidden space-y-4 py-4 z-40 ">
-              {["Home", "Category", "About Us", "Contact Us", "Privacy Policy", "Terms & Conditions"].map(
-                (link) => (
+            <ul className="md:hidden space-y-4 py-4 z-50">
+              {["Home", "Category", "About Us", "Contact Us", "Privacy Policy", "Terms & Conditions"].map((link) => {
+                const linkPath = link === "Home" ? "/" : `/${link.toLowerCase().replace(/\s+/g, "-")}`;
+                return (
                   <li key={link}>
                     <Link
-                      to={link === "Home" ? "/" : `/${link.toLowerCase().replace(/\s+/g, "-")}`}
+                      to={linkPath}
                       onClick={() => {
-                        setActiveLink(link);
-                        toggleMobileMenu();
+                        setMobileMenuOpen(false); // Close mobile menu after click
                       }}
-                      className="block text-black hover:text-red-500 transition-all font-medium"
+                      className={`${
+                        isActiveLink(linkPath) ? "text-[#9c27b0] font-medium" : "text-black"
+                      } block hover:text-[#9c27b0] transition-all font-medium`}
                     >
                       {link}
                     </Link>
-                    {activeLink === link && (
-                      <div className="h-1 bg-red-500 rounded-full mt-1 w-full">
-                        <div className="w-2 h-2 bg-red-500 rounded-full mx-auto mt-1"></div>
+                    {isActiveLink(linkPath) && (
+                      <div className="h-1 bg-[#9c27b0] rounded-full mt-1 w-full">
+                        <div className="w-2 h-2 bg-[#9c27b0] rounded-full mx-auto mt-1"></div>
                       </div>
                     )}
                   </li>
-                )
-              )}
+                );
+              })}
             </ul>
           )}
         </div>
