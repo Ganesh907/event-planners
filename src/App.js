@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { useRoutes } from 'react-router';
-import AppRoutes from './routes/Router';
+import AppRoutes from './routes2/Router';
 import Spinner from './components/common/Spinner';
 const App = () => {
   const routing = useRoutes(AppRoutes);
