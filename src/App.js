@@ -1,14 +1,15 @@
-import React from 'react';
-import { BrowserRouter as AppRouter } from 'react-router-dom'; // Import BrowserRouter here
-import Router from './Routes/Router'; 
-import Navbar from './layouts/navbar';
-
+import React, { Suspense } from 'react';
+import { useRoutes } from 'react-router';
+import AppRoutes from './routes/Router';
+import Spinner from './components/common/Spinner';
 const App = () => {
+  const routing = useRoutes(AppRoutes);
   return (
-    <AppRouter>
-      <Navbar />
-      <Router />
-    </AppRouter>
+    <div className="bg-blue-50 dark:bg-transparent">
+    <Suspense fallback={<Spinner />}>
+      {routing}
+    </Suspense>
+  </div>
   );
 };
 

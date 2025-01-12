@@ -15,6 +15,7 @@ const CategoriesPage = () => {
   const [value, setValue] = useState([MIN_PRICE, MAX_PRICE]);
   const [selectedProduct, setSelectedProduct] = useState(null); // State to track selected product
   const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false); // Modal open state
+  const [cart, setCart] = useState([]); // Cart state
 
   // Handle slider value change
   const handleChange = (event, newValue) => {
@@ -28,27 +29,19 @@ const CategoriesPage = () => {
       images: [BirthdayDecoration, GaneshaDecoration, WeddingDecoration, BabyShowerDecoration], // Add your dynamic images here
     };
 
-    // const relatedProducts = filterItems(categories.find((category) => category.name === selectedCategory)?.items)
-    //   .filter((item) => item.title !== product.title); 
-
     setSelectedProduct(productWithImages);
     setIsProductDetailsOpen(true);
-};
-
-const handleSelectProduct = (product) => {
-  const productWithImages = {
-    ...product,
-    images: [BirthdayDecoration, GaneshaDecoration, WeddingDecoration, BabyShowerDecoration], // Add your dynamic images here
   };
 
-  // const relatedProducts = filterItems(categories.find((category) => category.name === selectedCategory)?.items)
-  //   .filter((item) => item.title !== product.title); 
-  setSelectedProduct(productWithImages);
-};
   // Close product details
   const closeProductDetails = () => {
     setSelectedProduct(null);
     setIsProductDetailsOpen(false);
+  };
+
+  // Handle Add to Cart
+  const handleAddToCart = (product) => {
+    setCart([...cart, product]); // Add the product to the cart
   };
 
   // Value text for accessibility
@@ -62,7 +55,6 @@ const handleSelectProduct = (product) => {
     return items.filter((item) => item.price >= value[0] && item.price <= value[1]);
   };
 
-  
   return (
     <div className="min-h-screen p-4 md:p-8 font-sans">
       {!isProductDetailsOpen && ( // Show CategoriesPage only if product details are closed
@@ -141,15 +133,14 @@ const handleSelectProduct = (product) => {
 
       {/* Product Details Modal */}
       {isProductDetailsOpen && (
-    <ProductDetails
-    product={selectedProduct}
-    onClose={closeProductDetails}
-    // relatedProducts={relatedProducts}
-    onSelectProduct={handleSelectProduct} // Pass the new function
-      relatedProducts={filterItems(categories.find((category) => category.name === selectedCategory)?.items)
-        .filter((item) => item.title !== selectedProduct?.title)} 
-    />
-)}
+        <ProductDetails
+          product={selectedProduct}
+          onClose={closeProductDetails}
+          onAddToCart={handleAddToCart} // Pass the handleAddToCart function here
+          relatedProducts={filterItems(categories.find((category) => category.name === selectedCategory)?.items)
+            .filter((item) => item.title !== selectedProduct?.title)} 
+        />
+      )}
 
       {/* Footer */}
       <footer className="mt-8">

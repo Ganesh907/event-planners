@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import { Rating } from '@mui/material';
 
-const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) => {
-  const [selectedImage, setSelectedImage] = useState(product?.images[0]); // State to track selected image
+const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct, onAddToCart }) => {
+  // Select the first image initially
+  const [selectedImage, setSelectedImage] = useState(product?.images[0]);
 
   if (!product) return null; // Ensure the product exists
 
@@ -11,15 +11,13 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
     setSelectedImage(image);
   };
 
-  // Handle click on related product
-  const handleRelatedProductClick = (relatedProduct) => {
-    // Call the onSelectProduct function with the new product details
-    onSelectProduct(relatedProduct);
+  // Handle Add to Cart Button Click
+  const handleAddToCartClick = () => {
+    onAddToCart(product); // Add product to cart via the parent function
   };
 
   return (
     <div className="p-8 w-full md:w-4/5 lg:w-3/4 mx-auto bg-white rounded-lg shadow-2xl relative">
-      {/* Close Button */}
       <button
         className="text-gray-600 hover:text-gray-900 transition-colors duration-300 absolute top-4 right-4"
         onClick={onClose}
@@ -28,9 +26,7 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
       </button>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Product Image Gallery */}
         <div className="flex flex-col">
-          {/* Main Image */}
           <div className="main-image mb-4">
             <img
               src={selectedImage}
@@ -39,7 +35,6 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
             />
           </div>
 
-          {/* Thumbnails */}
           <div className="thumbnails flex space-x-2 overflow-x-auto">
             {product.images && product.images.length > 0 ? (
               product.images.map((image, index) => (
@@ -57,24 +52,11 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
           </div>
         </div>
 
-        {/* Product Information Section */}
         <div className="product-info flex flex-col justify-between">
-          {/* Product Title */}
           <h2 className="text-3xl font-bold text-gray-900 mb-2">{product.title}</h2>
-
-          {/* Rating */}
-          {/* <div className="flex items-center mb-4"> */}
-            {/* <Rating name="product-rating" value={product.rating} precision={0.5} readOnly /> */}
-            {/* <span className="ml-2 text-gray-600">({product.reviews} reviews)</span> */}
-          {/* </div> */}
-
-          {/* Price */}
           <div className="text-2xl font-semibold text-[#9c27b0] mb-4">{`₹${product.price}`}</div>
+          <p className="text-gray-700 leading-relaxed mb-4"><span className="font-semibold">Description: </span>{product.description}</p>
 
-          {/* Product Description */}
-          <p className="text-gray-700 leading-relaxed mb-4"><span className='font-semibold'>Description : </span>{product.description}</p>
-
-          {/* Items Used in the Product */}
           <div className="mb-6">
             <h3 className="text-xl font-semibold mb-2">Items Used:</h3>
             <ul className="list-disc pl-5">
@@ -88,17 +70,12 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
             </ul>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex space-x-4">
-            {/* <button
-              className="w-full md:w-1/2 bg-indigo-600 text-white font-semibold py-2 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-300"
-            >
-              Add to Cart
-            </button> */}
             <button
+              onClick={handleAddToCartClick} // Add to cart on button click
               className="w-full md:w-1/2 bg-yellow-500 text-white font-semibold py-2 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
             >
-              Buy Now
+              Add to Cart
             </button>
           </div>
         </div>
@@ -113,7 +90,7 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
               <div
                 key={item.title}
                 className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
-                onClick={() => handleRelatedProductClick(item)} // Handle click on related product
+                onClick={() => onSelectProduct(item)} // Handle click on related product
               >
                 <img src={item.image} alt={item.title} className="w-full h-40 object-cover rounded-t-lg" />
                 <div className="p-4">
