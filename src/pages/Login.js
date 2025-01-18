@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// MUI Icons
+import { useNavigate } from "react-router-dom";
 import { Person, Lock } from "@mui/icons-material";
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     setLoading(true);
-
     setTimeout(() => {
       const { username, password } = data;
       if (username === "testuser" && password === "password123") {
@@ -25,6 +23,7 @@ const LoginForm = () => {
           draggable: true,
           progress: undefined,
         });
+        navigate("/dashboard"); 
       } else {
         toast.error("Incorrect Username or Password!", {
           position: "top-right",

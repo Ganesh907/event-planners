@@ -37,6 +37,7 @@ const TermsConditions = lazy(() => import("../pages/TermsConditions"));
 const LoginPage = lazy(() => import("../pages/Login"));
 const Cart = lazy(() => import("../components/categoriespagecomponents/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const AdminAddProduct = lazy(() => import("../pages/AdminAddProduct"));
 
 const AppRoutes = [
   {
@@ -51,6 +52,7 @@ const AppRoutes = [
       { path: "/terms-conditions", element: <TermsConditions /> },
       { path: "/cart", element: <Cart /> },
       { path: "/login", element: <LoginPage /> },
+      { path: "/dashboard", element: <AdminAddProduct /> },
       { path: "*", element: <NotFound /> },
     ],
   },
