@@ -64,7 +64,7 @@ const Navbar = () => {
         {/* Cart and Profile Icons */}
         <div className="flex items-center space-x-4 text-white ">
           {/* Cart */}
-          <div className="relative">
+          {/* <div className="relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -82,9 +82,9 @@ const Navbar = () => {
             <span className="absolute top-0 right-0 bg-[#9c27b0] text-xs text-white rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
-          </div>
+          </div> */}
           {/* Profile */}
-          <MenuListComposition/>
+          <MenuListComposition sx={{ fontSize: '36px', color: '#9c27b0' }}/>
         </div>
       </div>
 
@@ -140,7 +140,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <ul className="md:hidden space-y-4 py-4 z-50">
+            <ul className="md:hidden space-y-4 py-4 z-50 text-center">
               {["Home", "Category", "About Us", "Contact Us", "Privacy Policy", "Terms & Conditions"].map((link) => {
                 const linkPath = link === "Home" ? "/" : `/${link.toLowerCase().replace(/\s+/g, "-")}`;
                 return (
@@ -157,8 +157,8 @@ const Navbar = () => {
                       {link}
                     </Link>
                     {isActiveLink(linkPath) && (
-                      <div className="h-1 bg-[#9c27b0] rounded-full mt-1 w-full">
-                        <div className="w-2 h-2 bg-[#9c27b0] rounded-full mx-auto mt-1"></div>
+                      <div className="h-[2px] bg-[#9c27b0] rounded-full mt-1 w-full">
+                        <div className="w-1 h-1 bg-[#9c27b0] rounded-full mx-auto mt-1"></div>
                       </div>
                     )}
                   </li>

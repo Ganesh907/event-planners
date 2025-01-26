@@ -51,6 +51,7 @@ export default function MenuListComposition() {
   const handleLoginClick = () => {
     setOpen(false);
     navigate('/login');  // Adjust this path to match the actual route for your login page
+    setOpen(false);
     // Close the menu after clicking
   };
 
@@ -66,7 +67,7 @@ export default function MenuListComposition() {
           onClick={handleToggle}
           sx={{color:'white'}}
         >
-          <AccountCircleIcon />
+         <AccountCircleIcon sx={{ fontSize: '36px' }} />
         </Button>
         <Popper
           open={open}

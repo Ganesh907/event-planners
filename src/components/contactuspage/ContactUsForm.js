@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 // MUI Icons
 import { Person, Email, Phone, Subject, Message } from '@mui/icons-material';
@@ -17,18 +18,48 @@ export const ContactUsForm = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    toast.success('Form submitted successfully!', {
-      position: 'top-center',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://localhost:44361/api/Login/SaveEnquiryData", // API URL
+        data, // Form data
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    console.log('Form data submitted: ', data);
-    reset();
+      if (response.status === 200 || response.status === 201) {
+        toast.success(response.data.message || "Form submitted successfully!", {
+          position: "top-center",
+          autoClose: 5000,
+        });
+        reset(); // Reset the form
+      } else {
+        toast.error(response.data.message || "Failed to submit the form.", {
+          position: "top-center",
+          autoClose: 5000,
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+
+      if (error.response) {
+        toast.error(
+          error.response.data.message || "Failed to submit the form.",
+          {
+            position: "top-center",
+            autoClose: 5000,
+          }
+        );
+      } else {
+        toast.error("An unexpected error occurred. Please try again later.", {
+          position: "top-center",
+          autoClose: 5000,
+        });
+      }
+    }
   };
 
   return (
@@ -48,7 +79,7 @@ export const ContactUsForm = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Name */}
         <div>
-          <label htmlFor="name" className=" text-lg font-medium text-black mb-2 flex items-center">
+          <label htmlFor="name" className="text-lg font-medium text-black mb-2 flex items-center">
             <Person className="mr-2 text-[#9c27b0]" />
             Name
           </label>

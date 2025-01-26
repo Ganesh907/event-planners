@@ -33,10 +33,11 @@ const Category = lazy(() => import("../pages/Categories"));
 const About = lazy(() => import("../pages/AboutUs"));
 const Contact = lazy(() => import("../pages/ContactUsPage"));
 const PrivacyPolicy = lazy(() => import("../pages/PrivacyPolicy"));
-const TermsConditions = lazy(() => import("../pages/TermsConditions"));
+const TermsAndConditions = lazy(() => import("../pages/TermsAndConditions"));
 const LoginPage = lazy(() => import("../pages/Login"));
 const Cart = lazy(() => import("../components/categoriespagecomponents/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const ProductDetails = lazy(() => import("../pages/ProductDetails"));
 const AdminAddProduct = lazy(() => import("../pages/AdminAddProduct"));
 
 const AppRoutes = [
@@ -49,10 +50,11 @@ const AppRoutes = [
       { path: "/about-us", element: <About /> },
       { path: "/contact-us", element: <Contact /> },
       { path: "/privacy-policy", element: <PrivacyPolicy /> },
-      { path: "/terms-conditions", element: <TermsConditions /> },
+      { path: "/terms-&-conditions", element: <TermsAndConditions /> },
       { path: "/cart", element: <Cart /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/dashboard", element: <AdminAddProduct /> },
+      { path: "/product-details", element: <ProductDetails /> },
       { path: "*", element: <NotFound /> },
     ],
   },
