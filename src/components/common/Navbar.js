@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import useLocation hook
 // import logo from '../../assets/images/EPLogo.jpeg';
 import logo from '../../assets/images/HiFiLogo.jpg';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import MenuListComposition from './User';
 
 const Navbar = () => {
   const location = useLocation(); // Get the current location
