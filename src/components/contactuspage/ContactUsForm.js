@@ -95,7 +95,7 @@ export const ContactUsForm = () => {
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-lg font-medium text-black mb-2 flex items-center">
+          <label htmlFor="email" className=" text-lg font-medium text-black mb-2 flex items-center">
             <Email className="mr-2 text-[#9c27b0]" />
             Email
           </label>
@@ -117,7 +117,7 @@ export const ContactUsForm = () => {
 
         {/* Phone */}
         <div>
-          <label htmlFor="phone" className="block text-lg font-medium text-black mb-2 flex items-center">
+          <label htmlFor="phone" className=" text-lg font-medium text-black mb-2 flex items-center">
             <Phone className="mr-2 text-[#9c27b0]" />
             Phone
           </label>
@@ -140,7 +140,7 @@ export const ContactUsForm = () => {
 
         {/* Subject */}
         <div>
-          <label htmlFor="subject" className="block text-lg font-medium text-black mb-2 flex items-center">
+          <label htmlFor="subject" className=" text-lg font-medium text-black mb-2 flex items-center">
             <Subject className="mr-2 text-[#9c27b0]" />
             Subject
           </label>
@@ -156,7 +156,7 @@ export const ContactUsForm = () => {
 
         {/* Message */}
         <div className="lg:col-span-2">
-          <label htmlFor="message" className="block text-lg font-medium text-black mb-2 flex items-center">
+          <label htmlFor="message" className=" text-lg font-medium text-black mb-2 flex items-center">
             <Message className="mr-2 text-[#9c27b0]" />
             Message
           </label>

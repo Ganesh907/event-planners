@@ -31,7 +31,7 @@ const AdminAddProduct = () => {
   const [productPrice, setProductPrice] = useState('');
   const [images, setImages] = useState([]);
   const [imagePreviews, setImagePreviews] = useState([]);
-  const [imagePaths, setImagePaths] = useState([]);
+  // const [imagePaths, setImagePaths] = useState([]);
   const [error, setError] = useState('');
 
   const handleImageChange = (e) => {
@@ -135,7 +135,7 @@ const AdminAddProduct = () => {
         setProductPrice('');
         setImages([]);
         setImagePreviews([]);
-        setImagePaths([]);
+        // setImagePaths([]);
       } else {
         alert(response.data.message || 'Failed to add product.');
       }
