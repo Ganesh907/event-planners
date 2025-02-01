@@ -1,6 +1,7 @@
 import BgVideo from '../assets/videos/BackgroundVideo.mp4';
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/images/EPLogo.jpeg'
+// import logo from '../assets/images/EPLogo.jpeg'
+import logo from '../assets/images/HiFiLogo.jpg'
 import CategoriesCarousel from '../components/categoriespagecomponents/CategoriesCarousel';
 import { categories } from '../utils/CategoriesData';
 import { useNavigate } from 'react-router';
@@ -65,7 +66,7 @@ const EventPage = () => {
             className="text-5xl text-center font-bold mx-10 border-y-4 py-2 italic border-black"
             style={{ fontFamily: 'Playfair Display' }}
           >
-            Event Planners
+            HiFi Creations
           </h1>
           {/* <CelebrationIcon sx={{ fontSize: '100px', transform: 'rotate(270deg)' }} /> */}
         </div>

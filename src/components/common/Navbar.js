@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import useLocation hook
-import logo from '../../assets/images/EPLogo.jpeg';
+// import logo from '../../assets/images/EPLogo.jpeg';
+import logo from '../../assets/images/HiFiLogo.jpg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuListComposition from './User';
 
@@ -27,12 +28,12 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Logo"
-            className="h-12 w-12 rounded-full shadow-md p-1 bg-white shadow-black"
+            className="h-12 w-12 rounded-full shadow-md p-[2px] bg-white shadow-black"
           />
           <div className='h-12 w-[2px] bg-white rounded-md'></div>
           <div className="leading-tight">
-            <h1 className="text-3xl font-semibold italic" style={{ fontFamily: 'Playfair Display' }}>Event Planners</h1>
-            <p className="text-xs italic">Planning the Event of Your Dreams....</p>
+            <h1 className="text-3xl font-semibold text-black italic" style={{ fontFamily: 'Playfair Display' }}>HiFi Creations</h1>
+            <p className="text-xs italic text-black">Planning the Event of Your Dreams....</p>
           </div>
         </div>
 
@@ -84,7 +85,7 @@ const Navbar = () => {
             </span>
           </div> */}
           {/* Profile */}
-          <MenuListComposition sx={{ fontSize: '36px', color: '#9c27b0' }}/>
+          {/* <MenuListComposition sx={{ fontSize: '36px', color: '#9c27b0' }}/> */}
         </div>
       </div>
 

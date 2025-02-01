@@ -9,10 +9,10 @@ const AboutUs = () => {
           className="text-4xl md:text-5xl font-extrabold text-[#9c27b0] italic animate-fadeIn"
           style={{ fontFamily: "Playfair Display" }}
         >
-          About Event Planners
+          About HiFi Creations
         </h1>
         <p className="text-md md:text-lg mt-4 animate-fadeIn delay-200">
-          At <span className="font-bold text-[#9c27b0]">Event Planners</span>, we transform dreams into reality. 
+          At <span className="font-bold text-[#9c27b0]">HiFi Creations</span>, we transform dreams into reality. 
           Whether it's a joyous birthday, a stunning wedding, or a cozy baby shower, 
           we handle everything with creativity and care.
         </p>

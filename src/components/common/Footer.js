@@ -10,7 +10,7 @@ export const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">About Us</h3>
           <p className="text-sm">
-            We are passionate event planners dedicated to creating unforgettable
+            We are passionate HiFi Creations dedicated to creating unforgettable
             experiences tailored to your needs. Let us bring your vision to
             life!
           </p>
@@ -119,7 +119,7 @@ export const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <p>© {new Date().getFullYear()} Event Planner. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} HiFi Creations. All rights reserved.</p>
         </div>
       </div>
     </footer>

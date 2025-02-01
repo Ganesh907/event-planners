@@ -1,3 +1,80 @@
+// src/components/categoriespagecomponents/Cart.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from '../../redux/Cartslice';
+import { useNavigate } from 'react-router-dom';
+
+const Cart = ({handleCloseDrawer}) => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Function to delete an item from the cart using its id
+  const handleDelete = (id) => {
+    console.log(id)
+    dispatch(removeFromCart(id));
+  };
+
+  // Ask user if they want to add more items; if yes, navigate back
+  const handleAddMore = () => {
+    const userWantsMore = window.confirm("Do you want to add more items to your cart?");
+    if (userWantsMore) {
+        handleCloseDrawer();
+    //   navigate(-1); // This goes back to the previous page
+    navigate("/category")
+    }
+  };
+
+  return (
+    <div className="p-4 ">
+      <h2 className="text-2xl font-bold mb-4">Cart Items</h2>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <>
+          <ul>
+            {cartItems.map((item, index) => (
+              <li
+                key={index}
+                className="border-b py-2 flex items-center justify-between"
+              >
+                <div className="flex items-center">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-20 h-20 object-cover rounded-lg mr-4"
+                  />
+                  <div>
+                    <span className="font-semibold">{item.title}</span>
+                    <div>₹{item.price}</div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => handleDelete(item.id)}
+                  className="text-red-500 hover:text-red-700"
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4">
+            <button
+              onClick={handleAddMore}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Add More Items
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Cart;
+
+
 // const Cart = ({ cart, setCart, onAddToCart }) => {
 //     // Handle remove from cart
 //     const handleRemoveFromCart = (productToRemove) => {
@@ -43,4 +120,4 @@
 //   };
   
 //   export default Cart;
-  
+

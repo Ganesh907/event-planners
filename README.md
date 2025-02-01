@@ -1,6 +1,6 @@
-# Event Planners
+# HiFi Creations
 
-Event Planners is a private project aimed at simplifying the process of planning and managing events.
+HiFi Creations is a private project aimed at simplifying the process of planning and managing events.
 
 ## Features
 

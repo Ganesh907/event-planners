@@ -135,7 +135,7 @@ const PrivacyPolicy = () => {
 
       {/* Footer Note */}
       <div className="mt-16 text-center text-sm text-gray-500">
-        <p>© 2025 Event Planners. All rights reserved.</p>
+        <p>© 2025 HiFi Creations. All rights reserved.</p>
       </div>
     </section>
   );
