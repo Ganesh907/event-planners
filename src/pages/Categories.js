@@ -142,10 +142,6 @@ const CategoriesPage = () => {
         />
       )}
 
-      {/* Footer */}
-      <footer className="mt-8">
-        <p className="text-center text-white">© 2024 Your Company. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

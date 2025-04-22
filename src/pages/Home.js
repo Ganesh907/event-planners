@@ -5,6 +5,7 @@ import logo from '../assets/images/HiFiLogo.jpg'
 import CategoriesCarousel from '../components/categoriespagecomponents/CategoriesCarousel';
 import { categories } from '../utils/CategoriesData';
 import { useNavigate } from 'react-router';
+import Crud from '../components/Crud';
 
 const EventPage = () => {
   const [showHeading, setShowHeading] = useState(false);
@@ -39,24 +40,21 @@ const EventPage = () => {
 
   return (
     <div>
-          <div className="relative h-[80vh] flex justify-center items-center ">
-      {/* Video background for the main div */}
+          {/* <div className="relative h-[80vh] flex justify-center items-center ">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src={BgVideo} // Replace with the path to your video
+        src={BgVideo} 
         autoPlay
         loop
         muted
       />
 
-      {/* Content on top of the video */}
       <div className="relative flex justify-center items-center z-10">
         <div
           className={`transition-opacity flex flex-col  duration-1000 ease-in-out ${showHeading ? 'opacity-100' : 'opacity-0'} ${
             showHeading ? 'visible' : 'invisible'
           } flex justify-center items-center`}
         >
-          {/* <CelebrationIcon sx={{ fontSize: '100px' }} /> */}
           <img
             src={logo} 
             alt="Logo"
@@ -68,10 +66,9 @@ const EventPage = () => {
           >
             HiFi Creations
           </h1>
-          {/* <CelebrationIcon sx={{ fontSize: '100px', transform: 'rotate(270deg)' }} /> */}
         </div>
       </div>
-    </div>
+    </div> */}
        <CategoriesCarousel/>
 
        <div className="flex justify-center flex-wrap gap-4 my-20">
@@ -79,8 +76,7 @@ const EventPage = () => {
               <div key={category.name} className="flex flex-col items-center w-40 md:w-52">
                 <button
                 className='relative border-2 border-black flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl'
-                  // className={`relative flex items-center justify-center text-lg w-32 h-32 md:w-36 md:h-36 rounded-full shadow-2xl overflow-hidden transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl
-                  //   ${selectedCategory === category.name ? 'ring-2 ring-[#9c27b0] scale-105' : 'ring-2 bg-indigo-500'}`}
+              
                   onClick={() => navigate('/category')}
                 >
                   <img src={category.image} alt={category.name} className="absolute inset-0 object-cover w-full h-full opacity-80 transition duration-300 ease-in-out" />
@@ -91,6 +87,10 @@ const EventPage = () => {
               </div>
             ))}
           </div>
+
+
+<Crud/>
+
     </div>
 
 
