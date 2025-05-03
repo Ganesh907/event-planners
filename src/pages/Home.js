@@ -71,7 +71,7 @@ const EventPage = () => {
     </div> */}
        <CategoriesCarousel/>
 
-       <div className="flex justify-center flex-wrap gap-4 my-20">
+       {/* <div className="flex justify-center flex-wrap gap-4 my-20">
             {categories.map((category) => (
               <div key={category.name} className="flex flex-col items-center w-40 md:w-52">
                 <button
@@ -86,7 +86,7 @@ const EventPage = () => {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
 
 
 <Crud/>
