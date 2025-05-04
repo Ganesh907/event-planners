@@ -48,7 +48,7 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
   };
 
   return (
-    <div className="p-8 w-full md:w-4/5 lg:w-3/4 mx-auto bg-white rounded-lg shadow-2xl relative">
+    <div className="p-8 w-full md:w-4/5 lg:w-3/4 mx-auto scale-90 bg-white rounded-lg shadow-2xl relative overflow-hidden">
       {/* Close Button */}
       <button
         className="text-gray-600 hover:text-gray-900 transition-colors duration-300 absolute top-4 right-4"
@@ -62,7 +62,8 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
         <div className="flex flex-col">
           <div className="main-image mb-4">
             <img
-              src={selectedImage}
+              // src={selectedImage}
+              src={dummyProduct.images[0]}
               alt={dummyProduct.title}
               className="w-full h-80 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
             />
@@ -84,8 +85,11 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
 
         {/* Product Details Section */}
         <div className="product-info flex flex-col justify-between">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">{dummyProduct.title}</h2>
-          <div className="text-2xl font-semibold text-[#9c27b0] mb-4">{`₹${dummyProduct.price}`}</div>
+          {/* <h2 className="text-3xl font-bold text-gray-900 mb-2">{dummyProduct.title}</h2> */}
+          {/* <h2 className="text-3xl font-bold text-gray-900 mb-2">{dummyProduct.productName}</h2> */}
+          <h2 className="text-2xl font-bold text-blue-500 ">{dummyProduct.productName}</h2>
+          {/* <div className="text-2xl font-semibold text-[#9c27b0] mb-4">{`₹${dummyProduct.price}`}</div> */}
+          <div className="text-2xl font-semibold text-black">{`₹${dummyProduct.discountPrice}`}</div>
           <p className="text-gray-700 leading-relaxed mb-4">
             <span className="font-semibold">Description: </span>
             {dummyProduct.description}
@@ -108,7 +112,7 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
           {/* Add to Cart Button */}
           <button
             onClick={handleAddToCartClick}
-            className="w-full md:w-1/2 bg-yellow-500 text-white font-semibold py-2 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
+            className="w-full md:w-1/2 bg-blue-500 text-white font-semibold py-2 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
           >
             Add to Cart
           </button>
@@ -132,8 +136,11 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
                   className="w-full h-40 object-cover rounded-t-lg"
                 />
                 <div className="p-4">
-                  <h4 className="text-lg font-semibold text-[#9c27b0] mb-1">{item.title}</h4>
-                  <p className="text-gray-700 mb-2">{`₹${item.price}`}</p>
+                  {/* <h4 className="text-lg font-semibold text-[#9c27b0] mb-1">{item.title}</h4> */}
+                  <h4 className="text-md font-semibold text-blue-500 mb-1">{item.productName}</h4>
+                  {/* <h4 className="text-lg font-semibold text-[#9c27b0] mb-1">{item.productName}</h4> */}
+                  {/* <p className="text-gray-700 mb-2">{`₹${item.price}`}</p> */}
+                  <p className="text-gray-700 mb-2">{`₹${item.discountPrice}`}</p>
                 </div>
               </div>
             ))
@@ -166,6 +173,8 @@ const ProductDetails = ({ product, onClose, relatedProducts, onSelectProduct }) 
 };
 
 export default ProductDetails;
+
+
 
 
 

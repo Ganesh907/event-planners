@@ -1,42 +1,42 @@
-import BgVideo from '../assets/videos/BackgroundVideo.mp4';
-import React, { useState, useEffect } from 'react';
+// import BgVideo from '../assets/videos/BackgroundVideo.mp4';
+import React from 'react';
 // import logo from '../assets/images/EPLogo.jpeg'
-import logo from '../assets/images/HiFiLogo.jpg'
+// import logo from '../assets/images/HiFiLogo.jpg'
 import CategoriesCarousel from '../components/categoriespagecomponents/CategoriesCarousel';
-import { categories } from '../utils/CategoriesData';
-import { useNavigate } from 'react-router';
+// import { categories } from '../utils/CategoriesData';
+// import { useNavigate } from 'react-router';
 import Crud from '../components/Crud';
 
 const EventPage = () => {
-  const [showHeading, setShowHeading] = useState(false);
-  const navigate = useNavigate();
-  useEffect(() => {
+  // const [showHeading, setShowHeading] = useState(false);
+  // const navigate = useNavigate();
+  // useEffect(() => {
     // Function to handle the visibility of the heading
-    const toggleVisibility = () => {
-      setShowHeading(true); // Show heading for the middle 7 seconds
-      setTimeout(() => {
-        setShowHeading(false); // Hide heading after 7 seconds
-      }, 7000);
-    };
+    // const toggleVisibility = () => {
+    //   setShowHeading(true); // Show heading for the middle 7 seconds
+    //   setTimeout(() => {
+    //     setShowHeading(false); // Hide heading after 7 seconds
+    //   }, 7000);
+    // };
 
     // Hide heading initially for 1.5 seconds
-    const initialTimeout = setTimeout(() => {
-      toggleVisibility(); // Show heading after 1.5 seconds
-    }, 1500);
+    // const initialTimeout = setTimeout(() => {
+    //   toggleVisibility(); // Show heading after 1.5 seconds
+    // }, 1500);
 
     // Repeat the process every 10 seconds (entire video duration)
-    const interval = setInterval(() => {
-      setShowHeading(false); // Hide for the last 1.5 seconds
-      setTimeout(() => {
-        toggleVisibility(); // Show heading again for the next cycle
-      }, 1500);
-    }, 10000);
+    // const interval = setInterval(() => {
+    //   setShowHeading(false); // Hide for the last 1.5 seconds
+    //   setTimeout(() => {
+    //     toggleVisibility(); // Show heading again for the next cycle
+    //   }, 1500);
+    // }, 10000);
 
-    return () => {
-      clearTimeout(initialTimeout); // Cleanup on unmount
-      clearInterval(interval); // Cleanup on unmount
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(initialTimeout); // Cleanup on unmount
+  //     clearInterval(interval); // Cleanup on unmount
+  //   };
+  // }, []);
 
   return (
     <div>

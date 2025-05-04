@@ -19,7 +19,7 @@ export const Footer = () => {
         </div>
 
         {/* Cities */}
-        <div>
+        {/* <div>
           <h3 className="font-bold mb-3">Cities</h3>
           <ul className="space-y-2">
             <li>Mumbai</li>
@@ -27,7 +27,7 @@ export const Footer = () => {
             <li>Pune</li>
             <li>Siliguri</li>
           </ul>
-        </div>
+        </div> */}
 
         {/* Policies */}
         <div>
@@ -36,7 +36,7 @@ export const Footer = () => {
             <li>Privacy Policy</li>
             <li>Term & Conditions</li>
             <li>Shipping policy</li>
-            <li>Cancellation & refunds</li>
+            <li>Cancellation & refunds</li> 
           </ul>
         </div>
 
@@ -52,7 +52,7 @@ export const Footer = () => {
 
         {/* Logo & Social */}
         <div className="flex flex-col items-center justify-center text-center col-span-2 md:col-span-1">
-          <div className="text-4xl font-bold text-blue-700 mb-1">ebo</div>
+          <div className="text-4xl font-bold text-blue-700 mb-1">HIFI Creations</div>
           <p className="mb-2">Share your memories! <span className="text-blue-700">💙</span></p>
           <div className="flex space-x-4 text-gray-700 text-xl mt-1">
             <FaInstagram />
@@ -64,24 +64,24 @@ export const Footer = () => {
       </div>
 
       {/* App Download */}
-      <div className="max-w-7xl mx-auto px-4 md:px-10 pb-6">
+      {/* <div className="max-w-7xl mx-auto px-4 md:px-10 pb-6">
         <p className="font-medium mb-2">Download the app</p>
         <div className="flex space-x-4">
           <img src="/path-to-googleplay.png" alt="Google Play" className="w-36" />
           <img src="/path-to-appstore.png" alt="App Store" className="w-36" />
         </div>
-      </div>
+      </div> */}
 
       {/* Bottom Line */}
       <div className="text-center border-t border-gray-200 py-4 text-xs">
-        © ebo Solutions Pvt. Ltd. All Rights Reserved. <br />
+        © HIFI Creations Pvt. Ltd. All Rights Reserved. <br />
         Office No. 273, Plot No. 19, Sector - 19D, Satra Plaza, Vashi, Mumbai, Maharashtra, 400705
       </div>
     </footer>
   );
 };
 
-
+export default Footer;
 
 
 
