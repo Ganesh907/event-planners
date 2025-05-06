@@ -105,7 +105,7 @@ const CategoriesCarousel = () => {
                 <div className="absolute inset-0 flex flex-col justify-end items-start w-full  text-white p-5 md:p-10 bg-black bg-opacity-50">
                   <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold drop-shadow-lg shadow-2xl p-2 md:p-5 rounded-xl border-2 border-white" style={{backgroundColor:'rgba(0,0,0,0.5)'}}>{slide.title}</h1>
                   <p className="mt-2 md:mt-4 max-w-md md:max-w-lg">{slide.description}</p>
-                  <button className="mt-4 md:mt-6 px-4 md:px-6 py-2 md:py-3 text-white border-2 border-white font-bold rounded-full bg-[#9c27b0]">
+                  <button className="mt-4 md:mt-6 px-4 md:px-6 py-2 md:py-3 text-white border-2 border-white font-bold rounded-full bg-[#2563eb]">
                     LET'S CELEBRATE
                   </button>
                 </div>

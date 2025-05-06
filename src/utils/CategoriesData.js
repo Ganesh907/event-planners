@@ -4,6 +4,8 @@ import BirthdayDecoration from "../assets/images/BirthdayDecoration.jpg";
 import WeddingDecoration from "../assets/images/WeddingDecoration.jpg";
 import GaneshaDecoration from "../assets/images/GaneshaDecoration.jpg";
 import AnniversaryDecoration from "../assets/images/AnniversaryDecoration.jpg";
+import PreWedding from "../assets/images/pre-wedding-photoshoot.png";
+import BabyWelcome from "../assets/images/Welcome baby.jpg";
 
 export const categories = [
   {
@@ -241,6 +243,17 @@ export const categories = [
   //     },
   //   ],
   // },
+  
+{
+  name: 'Pre Wedding Decors',
+  image: PreWedding,
+  description: 'Celebrate birthdays with fun decorations, themes, and party vibes that create lasting memories.',
+  },
+  {
+    name: 'Welcome Baby',
+    image: BabyWelcome,
+    description: 'Celebrate birthdays with fun decorations, themes, and party vibes that create lasting memories.',
+    }
 ];
 
 export const Products=[
