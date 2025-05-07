@@ -5,7 +5,7 @@ import { categories, Products } from "../utils/CategoriesData";
 import ProductDetails from "./categoriespagecomponents/ProductDetails";
 import bannerImg from "../assets/images/expressive-young-man-posing.png";
 import bannerImg2 from "../assets/images/banner2.png";
-import BirtdayVideo from  "../assets/videos/birthday video.mp4"
+import BirtdayVideo from "../assets/videos/birthday video.mp4";
 import CallIcon from "@mui/icons-material/Call";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
@@ -108,46 +108,44 @@ const Crud = () => {
         </div>
       </div>
 
+      <div className="col-span-full h-full my-6 bg-gradient-to-b from-blue-100 to-white rounded-lg shadow-md px-6 mx-5 py-8">
+  
+        {/* Heading */}
+        <h1
+          className="text-center text-3xl font-semibold italic"
+          style={{ fontFamily: "Playfair Display" }}
+        >
+          Celebrate the{" "}
+          <span className="text-blue-500 mx-1 font-bold">HIFI</span> Way 🥳🎉
+        </h1>
 
-
-
-      <div className="col-span-full h-auto  my-6 bg-blue-300 rounded-lg shadow-md px-6 mx-5 py-8">
-  {/* Heading */}
-  <h1
-    className="text-center text-3xl font-semibold italic"
-    style={{ fontFamily: "Playfair Display" }}
-  >
-    Celebrate the <span className="text-blue-500 mx-1 font-bold">HIFI</span> Way 🥳🎉
-  </h1>
-
-  {/* Video Grid */}
-  <div className="mt-8 flex flex-wrap justify-center gap-6">
-    {[...Array(5)].map((_, index) => (
-      <div key={index} className="w-64">
-        <h2 className="text-lg font-medium text-center mb-2 text-blue-900">
-          Video Title {index + 1}
-        </h2>
-        <video
-        src={BirtdayVideo}
-
-         // Replace with your actual video path
-          // controls 
-          muted
-          autoPlay
-          loop
-          className="w-full h-full rounded-md shadow-lg object-cover"
-        />
+        {/* Video Grid */}
+        <div className="mt-8 flex flex-wrap justify-center gap-6">
+          {[...Array(4)].map((_, index) => (
+            <div key={index} className="w-64">
+              <h2 className="text-lg font-medium text-start mb-2 text-blue-900">
+               Celebration Time
+              </h2>
+              <h3>Celebration ho to HIFI</h3>
+              <video
+                src={BirtdayVideo}
+                // Replace with your actual video path
+                // controls
+                muted
+                autoPlay
+                loop
+                className="w-[80%] h-[80%] rounded-md shadow-lg object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
 
       <h1 className="ms-10 text-2xl text-[#2563eb] mt-20 font-semibold">
         Top Categories
       </h1>
       <div className="flex justify-start flex-wrap gap-4 m-5">
-      {categories.slice(0, 4).map((category) => (
+        {categories.slice(0, 4).map((category) => (
           <div key={category.name} className="flex flex-col items-center">
             <button
               onClick={() => setSelectedCategory(category.name)}
@@ -258,9 +256,6 @@ const Crud = () => {
                   </div>
                 </div>
               )}
-
-
-
             </React.Fragment>
           ))}
         </div>
